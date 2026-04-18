@@ -6,7 +6,7 @@
  "genero": "jazz",
  "año": 1959,
  "precio": 32000,
- "imagen": "https://upload.wikimedia.org/wikipedia/en/9/9c/MilesDavisKindofBlue.jpg",
+ "imagen": "https://upload.wikimedia.org/wikipedia/en/1/10/Miles_Davis_-_Kind_of_Blue_album_cover.jpg",
  "disponible": true
  },
  {
@@ -16,7 +16,7 @@
  "genero": "rock",
  "año": 1971,
  "precio": 28000,
- "imagen": "https://upload.wikimedia.org/wikipedia/en/2/26/Led_Zeppelin_-_Led_Zeppelin_IV.jpg",
+ "imagen": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Zeppelin_IV.jpg",
  "disponible": true
  },
  {
@@ -27,7 +27,7 @@
  "año": 1990,
  "precio": 25000,
  "imagen":
-"https://upload.wikimedia.org/wikipedia/en/7/72/RobertJohnsonCompleteRecordings.jpg",
+"https://upload.wikimedia.org/wikipedia/en/9/9b/Robert_Johnson_-_The_Complete_Recordings.jpg",
  "disponible": false
  }
  
