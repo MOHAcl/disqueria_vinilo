@@ -1,0 +1,34 @@
+[
+    {
+ "id": 1,
+ "album": "Kind of Blue",
+ "artista": "Miles Davis",
+ "genero": "jazz",
+ "año": 1959,
+ "precio": 32000,
+ "imagen": "https://upload.wikimedia.org/wikipedia/en/9/9c/MilesDavisKindofBlue.jpg",
+ "disponible": true
+ },
+ {
+ "id": 2,
+ "album": "Led Zeppelin IV",
+ "artista": "Led Zeppelin",
+ "genero": "rock",
+ "año": 1971,
+ "precio": 28000,
+ "imagen": "https://upload.wikimedia.org/wikipedia/en/2/26/Led_Zeppelin_-_Led_Zeppelin_IV.jpg",
+ "disponible": true
+ },
+ {
+    "id": 3,
+ "album": "Robert Johnson: The Complete Recordings",
+ "artista": "Robert Johnson",
+ "genero": "blues",
+ "año": 1990,
+ "precio": 25000,
+ "imagen":
+"https://upload.wikimedia.org/wikipedia/en/7/72/RobertJohnsonCompleteRecordings.jpg",
+ "disponible": false
+ }
+ 
+]

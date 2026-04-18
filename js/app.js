@@ -1,18 +1,42 @@
-const { createApp, ref, onMounted } = Vue;
+const { createApp, ref, computed, onMounted } = Vue;
 createApp({
  setup() {
+ // ── Estado reactivo ────────────────────────────────────
  const titulo = ref('🎵Disquería de Vinilo');
  const discos = ref([]);
- const categoriaActiva = ref('todos');
- // AJAX: carga el catálogo desde el JSON
+ const cargando = ref(false);
+ const error = ref(null);
+ const categoria = ref('todos');
+ const busqueda = ref('');
+ // ── AJAX: carga el JSON ─────────────────────────────────
  async function cargarDiscos() {
- const respuesta = await fetch('data/discos.json');
- const datos = await respuesta.json();
- discos.value = datos;
+ try {
+ cargando.value = true;
+ error.value = null;
+ const res = await fetch('data/discos.json');
+ if (!res.ok) throw new Error(`HTTP ${res.status}`);
+ discos.value = await res.json();
+ } catch (e) {
+ error.value = 'No se pudo cargar el catálogo.';
+ console.error(e);
+ } finally {
+ cargando.value = false;
  }
- onMounted(() => {
- cargarDiscos(); // Se ejecuta cuando Vue termina de montar
+ }
+ // ── Propiedad computada: filtro por género + búsqueda ───
+ const discosFiltrados = computed(() => {
+ return discos.value.filter(d => {
+ const porCategoria = categoria.value === 'todos'
+ || d.genero === categoria.value;
+ const termino = busqueda.value.toLowerCase();
+ const porBusqueda = d.album.toLowerCase().includes(termino)
+ || d.artista.toLowerCase().includes(termino);
+ return porCategoria && porBusqueda;
  });
- return { titulo, discos, categoriaActiva, cargarDiscos };
+ });
+  // ── Ciclo de vida ───────────────────────────────────────
+ onMounted(() => cargarDiscos());
+ return { titulo, discos, cargando, error,
+ categoria, busqueda, discosFiltrados, cargarDiscos };
  }
 }).mount('#app');
